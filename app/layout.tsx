@@ -1,6 +1,13 @@
 import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
 import { site } from "@/data/site";
+
+const bandeinsStrange = localFont({
+  src: "../public/fonts/Bandeins-Strange-Variable-VF.ttf",
+  variable: "--font-strange",
+  display: "swap"
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -48,7 +55,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en-AU">
-      <body>{children}</body>
+      <body className={bandeinsStrange.variable}>{children}</body>
     </html>
   );
 }
